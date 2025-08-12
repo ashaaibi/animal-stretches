@@ -472,5 +472,17 @@
     // Initial render
     render(STRETCHES);
   </script>
+  <script>
+  function sendHeight(){
+    window.parent.postMessage(
+      { type: "resize", height: document.documentElement.scrollHeight },
+      "*"
+    );
+  }
+
+  // Send height on load and when resized
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
+  </script>
 </body>
 </html>
